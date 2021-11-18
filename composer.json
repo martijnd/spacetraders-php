@@ -1,0 +1,32 @@
+{
+    "name": "martijnd/spacetraders-php",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "^7.4"
+    },
+    "require-dev": {
+        "pestphp/pest": "^1.21",
+        "phpstan/phpstan": "^1.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Martijn Dorsman",
+            "email": "martijn.dorsman@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MartijnD\\SpaceTraders\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest"
+    },
+    "minimum-stability": "stable"
+}
