@@ -15,6 +15,11 @@ trait MakesHttpRequests
         return $this->request('get', $url);
     }
 
+    public function post(string $url, $payload = [])
+    {
+        return $this->request('post', $url, $payload);
+    }
+
     /**
      * Makes a request to the given url.
      * 
@@ -27,7 +32,7 @@ trait MakesHttpRequests
     public function request(string $verb, string $url, array $payload = []): array
     {
         $response = $this->guzzle->request($verb, $url,
-            $payload
+            ['form_params' => $payload]
         );
 
         $responseBody = (string) $response->getBody();

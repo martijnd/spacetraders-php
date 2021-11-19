@@ -15,12 +15,24 @@ it('can display account information', function () {
 
     expect($response)
         ->toBe([
-            "user" => [
-                "username" => "gastlyguy2",
-                "shipCount" => 0,
-                "structureCount" => 0,
-                "joinedAt" => "2021-11-18T19:29:35.607Z",
-                "credits" => 0
-            ]
+            "username" => "gastlyguy2",
+            "shipCount" => 0,
+            "structureCount" => 0,
+            "joinedAt" => "2021-11-18T19:29:35.607Z",
+            "credits" => 0
+        ]);
+});
+
+it('can display available loans', function () {
+    $spaceTraders = new SpaceTraders(API_KEY);
+    $response = $spaceTraders->account();
+
+    expect($response)
+        ->toBe([
+            "username" => "gastlyguy2",
+            "shipCount" => 0,
+            "structureCount" => 0,
+            "joinedAt" => "2021-11-18T19:29:35.607Z",
+            "credits" => 0
         ]);
 });
