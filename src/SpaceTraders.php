@@ -6,12 +6,13 @@ namespace SpaceTraders;
 
 use SpaceTraders\Traits\MakesHttpRequests;
 use GuzzleHttp\Client as HttpClient;
-use SpaceTraders\Actions\ManagesAccounts;
+use SpaceTraders\Actions;
 
 class SpaceTraders
 {
     use MakesHttpRequests,
-    ManagesAccounts;
+    Actions\ManagesAccounts,
+    Actions\ManagesLoans;
 
     /**
      * @var string
