@@ -15,6 +15,13 @@ trait MakesHttpRequests
         return $this->request('get', $url);
     }
 
+    /**
+     * Makes a POST request to the given URL.
+     * 
+     * @param string $url
+     * @param array<string,mixed> $payload
+     * @return array<string,mixed>
+     */
     public function post(string $url, $payload = [])
     {
         return $this->request('post', $url, $payload);
@@ -25,7 +32,7 @@ trait MakesHttpRequests
      * 
      * @param string $verb
      * @param string $url
-     * @param array<string,string> $payload
+     * @param array<string,mixed> $payload
      * 
      * @return array<string,mixed>
      */
@@ -41,7 +48,7 @@ trait MakesHttpRequests
         /** @var array<string,mixed> $result */
         $result = json_decode($responseBody, true) ?: $responseBody;
         
-        if (isset($result['error'])) {
+        if (isset($result['error']) && is_array($result['error'])) {
             throw new \Exception($result['error']['message']);
         }
 

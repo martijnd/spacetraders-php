@@ -26,6 +26,11 @@ trait ManagesLoans
         return $this->get('types/loans');
     }
 
+    /**
+     * @param string $type
+     * 
+     * @return array<string,mixed>
+     */
     public function takeOutLoan(string $type): array
     {
         return $this->post('my/loans', ['type' => $type]);    }

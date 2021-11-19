@@ -11,9 +11,12 @@ trait ManagesAccounts
      */
     public function account(): array
     {
-        return $this->get('my/account')['user'];
+        return (array) $this->get('my/account')['user'];
     }
 
+    /**
+     * @return array<string,mixed>
+     */
     public function createAccount(string $username)
     {
         return $this->post("users/$username/claim");

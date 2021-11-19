@@ -39,6 +39,10 @@ class SpaceTraders
         ]);
     }
 
+    /**
+     * @param string $systemId
+     * @return System
+     */
     public function system(string $systemId)
     {
         return new System($systemId, $this->guzzle);
@@ -55,6 +59,9 @@ class System
     ) {
     }
 
+    /**
+     * @return array<string,mixed>
+     */
     public function ships() {
         return $this->get("systems/$this->systemId/ship-listings");
     }
