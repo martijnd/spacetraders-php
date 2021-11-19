@@ -41,10 +41,10 @@ trait MakesHttpRequests
         /** @var array<string,mixed> $result */
         $result = json_decode($responseBody, true) ?: $responseBody;
         
-        if ($result['error']) {
+        if (isset($result['error'])) {
             throw new \Exception($result['error']['message']);
         }
-        
+
         return $result;
     }
 }
