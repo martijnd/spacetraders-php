@@ -28,7 +28,7 @@
     },
     "scripts": {
         "test": "vendor/bin/pest",
-        "phpstan": "vendor/bin/phpstan"
+        "phpstan": "vendor/bin/phpstan analyse src"
     },
     "minimum-stability": "stable"
 }
