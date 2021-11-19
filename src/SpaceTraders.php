@@ -11,8 +11,8 @@ use SpaceTraders\Actions;
 class SpaceTraders
 {
     use MakesHttpRequests,
-    Actions\ManagesAccounts,
-    Actions\ManagesLoans;
+        Actions\ManagesAccounts,
+        Actions\ManagesLoans;
 
     /**
      * @var string
@@ -37,5 +37,25 @@ class SpaceTraders
                 'Content-Type' => 'application/json',
             ],
         ]);
+    }
+
+    public function system(string $systemId)
+    {
+        return new System($systemId, $this->guzzle);
+    }
+}
+
+class System
+{
+    use MakesHttpRequests;
+
+    public function __construct(
+        public string $systemId,
+        public HttpClient $guzzle
+    ) {
+    }
+
+    public function ships() {
+        return $this->get("systems/$this->systemId/ship-listings");
     }
 }

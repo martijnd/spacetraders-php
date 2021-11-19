@@ -37,8 +37,14 @@ trait MakesHttpRequests
 
         $responseBody = (string) $response->getBody();
 
+        
         /** @var array<string,mixed> $result */
         $result = json_decode($responseBody, true) ?: $responseBody;
+        
+        if ($result['error']) {
+            throw new \Exception($result['error']['message']);
+        }
+        
         return $result;
     }
 }
