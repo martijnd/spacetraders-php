@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Http;
 use SpaceTraders\SpaceTraders;
 
 const API_KEY = 'e2d363b3-a2ab-4c7f-a698-f736d9781080';
